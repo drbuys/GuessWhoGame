@@ -5,7 +5,7 @@ var CharacterBox = React.createClass({
     render: function() {
         return (
             <div className="character">
-                <h1>{this.props.character.name}</h1>
+                <h3>{this.props.character.name}</h3>
                 <img src={this.props.character.image}></img>
             </div>
         );

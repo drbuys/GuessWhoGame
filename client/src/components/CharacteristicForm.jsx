@@ -53,7 +53,7 @@ var CharacteristicForm = React.createClass({
 
         return (
         <div className="form1">
-            <h1>Characteristics</h1>
+            <h3>Characteristics</h3>
             {options}
             {answers}
             <h3 className={boxes[1]}>{boxes[0]}</h3>

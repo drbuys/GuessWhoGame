@@ -19708,7 +19708,8 @@
 	        return {
 	            data: sampleInfo,
 	            chosen: this.getGameCharacter(),
-	            yesnoBox: null
+	            yesnoBox: null,
+	            guessBox: null
 	        };
 	    },
 	
@@ -19732,8 +19733,9 @@
 	        return filteredAns;
 	    },
 	
-	    resetYesNo: function resetYesNo() {
+	    resetYesNoGuess: function resetYesNoGuess() {
 	        this.setState({ yesnoBox: null });
+	        this.setState({ guessBox: null });
 	    },
 	
 	    getYesNoBox: function getYesNoBox(char, ans) {
@@ -19754,7 +19756,15 @@
 	            });
 	        }
 	        this.setState({ data: filteredChars });
-	        setTimeout(this.resetYesNo, 3000);
+	        setTimeout(this.resetYesNoGuess, 3000);
+	    },
+	
+	    onCheckGuess: function onCheckGuess(_id) {
+	        if (this.state.chosen._id === parseInt(_id)) {
+	            this.setState({ guessBox: ["Well Done!", "showbox"] });
+	        } else {
+	            this.setState({ guessBox: ["Try Again...", "showbox"] });
+	        }
 	    },
 	
 	    render: function render() {
@@ -19769,7 +19779,7 @@
 	            React.createElement(CharacterList, { info: this.state.data }),
 	            React.createElement(CharacteristicForm, { characteristics: this.getCharacteristics, answers: this.getPossibleAnswers, checkAnswer: this.getYesNoBox,
 	                yesnostate: this.state.yesnoBox }),
-	            React.createElement(GuessForm, { info: this.state.data })
+	            React.createElement(GuessForm, { info: this.state.data, checkGuess: this.onCheckGuess, guessboxstate: this.state.guessBox })
 	        );
 	    }
 	
@@ -19799,9 +19809,9 @@
 	            'div',
 	            { className: 'characterList' },
 	            React.createElement(
-	                'h1',
+	                'h3',
 	                null,
-	                'Character List Box'
+	                'Character List'
 	            ),
 	            characterNodes
 	        );
@@ -19828,7 +19838,7 @@
 	            "div",
 	            { className: "character" },
 	            React.createElement(
-	                "h1",
+	                "h3",
 	                null,
 	                this.props.character.name
 	            ),
@@ -19918,7 +19928,7 @@
 	            "div",
 	            { className: "form1" },
 	            React.createElement(
-	                "h1",
+	                "h3",
 	                null,
 	                "Characteristics"
 	            ),
@@ -19940,40 +19950,51 @@
 /* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	var React = __webpack_require__(1);
 	
 	var GuessForm = React.createClass({
-	    displayName: 'GuessForm',
+	    displayName: "GuessForm",
 	
+	
+	    guess: function guess(e) {
+	        e.preventDefault;
+	        this.props.checkGuess(e.target.value);
+	    },
 	
 	    render: function render() {
 	
+	        // var options = this.props.info.map(function(person){
+	        //     return <option key={person._id} value={person._id}>{person.name}</option>
+	        // });
+	
+	        var boxes = [null, "hidebox"];
+	        if (this.props.guessboxstate) {
+	            boxes = this.props.guessboxstate;
+	        }
+	
 	        var options = this.props.info.map(function (person) {
 	            return React.createElement(
-	                'option',
-	                { key: person._id, value: person._id },
+	                "button",
+	                { className: "guessButton", onClick: this.guess, key: person._id, value: person._id },
 	                person.name
 	            );
-	        });
+	        }.bind(this));
 	
 	        return React.createElement(
-	            'div',
-	            null,
+	            "div",
+	            { className: "guessFormDiv" },
 	            React.createElement(
-	                'h1',
+	                "h3",
 	                null,
-	                'Guess Form'
+	                "Guess Below..."
 	            ),
+	            options,
 	            React.createElement(
-	                'form',
-	                null,
-	                React.createElement(
-	                    'select',
-	                    null,
-	                    options
-	                )
+	                "h3",
+	                { className: boxes[1] },
+	                boxes[0]
 	            )
 	        );
 	    }

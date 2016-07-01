@@ -13,18 +13,31 @@ img {
 }
 
 .form1 {
-    /*text-align: center;*/
+    text-align: center;
     height: 100px;
+    /*vertical-align: top;*/
 }
 
 .inliners {
-    display: inline-block;
+    /*display: inline-block;*/
+    vertical-align: top;
     margin: auto;
     margin-left: 10px;
 }
 
-.showbox {
+.guessFormDiv {
+    text-align: center;
+    vertical-align: top;
+}
+
+.guessButton {
+    vertical-align: top;
+    margin: 10px;
     display: inline-block;
+}
+
+.showbox {
+    /*display: inline-block;*/
     /*border: 1px dashed black;
     border-radius: 8px;
     padding: 0px 10px;*/

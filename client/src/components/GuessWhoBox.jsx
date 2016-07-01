@@ -11,7 +11,8 @@ var GuessWhoBox = React.createClass({
         return {
             data: sampleInfo,
             chosen: this.getGameCharacter(),
-            yesnoBox: null
+            yesnoBox: null,
+            guessBox: null
         };
     },
 
@@ -35,8 +36,9 @@ var GuessWhoBox = React.createClass({
         return filteredAns;
     },
 
-    resetYesNo: function() {
+    resetYesNoGuess: function() {
         this.setState({yesnoBox: null})
+        this.setState({guessBox: null})
     },
 
     getYesNoBox: function(char, ans) {
@@ -57,10 +59,16 @@ var GuessWhoBox = React.createClass({
             })
         }
         this.setState({data: filteredChars})
-        setTimeout(this.resetYesNo, 3000);
+        setTimeout(this.resetYesNoGuess, 3000);
     },
 
-
+    onCheckGuess: function(_id) {
+        if(this.state.chosen._id === parseInt(_id)) {
+            this.setState({guessBox: ["Well Done!", "showbox"]})
+        } else {
+            this.setState({guessBox: ["Try Again...", "showbox"]})
+        }
+    },
 
     render: function() {
         return (
@@ -69,7 +77,7 @@ var GuessWhoBox = React.createClass({
                 <CharacterList info={this.state.data}/>
                 <CharacteristicForm characteristics={this.getCharacteristics} answers={this.getPossibleAnswers} checkAnswer={this.getYesNoBox}
                     yesnostate={this.state.yesnoBox}/>
-                <GuessForm info={this.state.data} />
+                <GuessForm info={this.state.data} checkGuess={this.onCheckGuess} guessboxstate={this.state.guessBox}/>
             </div>
         );
     }
