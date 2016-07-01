@@ -19773,7 +19773,7 @@
 	            null,
 	            React.createElement(
 	                'h1',
-	                null,
+	                { className: 'Title' },
 	                'Guess Who'
 	            ),
 	            React.createElement(CharacterList, { info: this.state.data }),

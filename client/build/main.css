@@ -1,3 +1,19 @@
+body {
+    margin: 0;
+    background-color: pink;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.Title {
+    text-align: center;
+    margin: 0 auto;
+    background-color: red;
+    padding: 10px;
+}
+
 img {
     width: 200px;
 }

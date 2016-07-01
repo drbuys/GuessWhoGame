@@ -73,7 +73,7 @@ var GuessWhoBox = React.createClass({
     render: function() {
         return (
             <div>
-                <h1>Guess Who</h1>
+                <h1 className="Title">Guess Who</h1>
                 <CharacterList info={this.state.data}/>
                 <CharacteristicForm characteristics={this.getCharacteristics} answers={this.getPossibleAnswers} checkAnswer={this.getYesNoBox}
                     yesnostate={this.state.yesnoBox}/>
