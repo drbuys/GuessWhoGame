@@ -1,0 +1,39 @@
+img {
+    width: 200px;
+}
+
+.character {
+    display: inline-block;
+    height: 300px;
+    vertical-align: top;
+}
+
+.characterList {
+    text-align: center;
+}
+
+.form1 {
+    /*text-align: center;*/
+    height: 100px;
+}
+
+.inliners {
+    display: inline-block;
+    margin: auto;
+    margin-left: 10px;
+}
+
+.showbox {
+    display: inline-block;
+    /*border: 1px dashed black;
+    border-radius: 8px;
+    padding: 0px 10px;*/
+    color: blue;
+    visibility: visible;
+    margin-left: 10px;
+}
+
+.hidebox {
+    display: inline-block;
+    visibility: hidden;
+}
