@@ -19790,17 +19790,21 @@
 	            'div',
 	            { className: 'encompass' },
 	            React.createElement(
-	                'h1',
-	                { className: 'Title' },
-	                'Guess Who - Happy Tree Friends!'
-	            ),
-	            React.createElement(
 	                'div',
-	                { className: answerbox[1] },
+	                { className: 'normal' },
 	                React.createElement(
 	                    'h1',
-	                    null,
-	                    answerbox[0]
+	                    { className: 'Title' },
+	                    'Guess Who - Happy Tree Friends!'
+	                ),
+	                React.createElement(
+	                    'div',
+	                    { className: answerbox[1] },
+	                    React.createElement(
+	                        'h1',
+	                        null,
+	                        answerbox[0]
+	                    )
 	                )
 	            ),
 	            React.createElement(

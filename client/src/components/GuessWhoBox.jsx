@@ -17,7 +17,7 @@ var GuessWhoBox = React.createClass({
     },
 
     componentDidMount: function() {
-        this.setState({guessBox: ["Shall we play a game?", "AnswerBoxShow"]})
+        this.setState({guessBox: ["Shall we play a game?", "AnswerBoxShow"]});
         setTimeout(this.resetYesNoGuess, 3000);
     },
 
@@ -91,9 +91,11 @@ var GuessWhoBox = React.createClass({
 
         return (
             <div className="encompass">
-                <h1 className="Title">Guess Who - Happy Tree Friends!</h1>
-                <div className={answerbox[1]}>
-                    <h1>{answerbox[0]}</h1>
+                <div className="normal">
+                    <h1 className="Title">Guess Who - Happy Tree Friends!</h1>
+                    <div className={answerbox[1]}>
+                        <h1>{answerbox[0]}</h1>
+                    </div>
                 </div>
                 <div className="mainBox">
                     <CharacterList info={this.state.data}/>
