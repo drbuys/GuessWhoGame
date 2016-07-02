@@ -4,6 +4,7 @@ var GuessForm = React.createClass({
 
     guess: function(e) {
         e.preventDefault;
+        console.log(e.target.value);
         this.props.checkGuess(e.target.value);
     },
 
@@ -24,7 +25,7 @@ var GuessForm = React.createClass({
 
         return (
             <div className="guessFormDiv">
-                <h3>Guess Below...</h3>
+                <h1>Make Your Guess Below</h1>
                 {/*<form>
                     <select>
                     {options}

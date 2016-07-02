@@ -30,7 +30,7 @@ var CharacteristicForm = React.createClass({
         }
 
         var options = (<select className="inliners" onChange={this.onCharacteristicChange}>
-            <option value="">Select characteristic</option>
+            <option value="" selected>Select Characteristic</option>
             {
                 this.props.characteristics().map(function(thing, index){
                     return <option key={index} value={thing}>{thing}</option>
@@ -42,7 +42,7 @@ var CharacteristicForm = React.createClass({
         var answers = null;
         if(this.state.selectedCharacteristic){
             answers = (<select className="inliners" onChange={this.onAnswerChange}>
-                <option value="">Make a choice</option>
+                <option value="" selected>Make a choose</option>
                 {
                     this.props.answers(this.state.selectedCharacteristic).map(function(answer, index){
                         return (<option key={index} value={answer}>{answer}</option>)
@@ -53,7 +53,7 @@ var CharacteristicForm = React.createClass({
 
         return (
         <div className="form1">
-            <h3>Characteristics</h3>
+            <h1>Characteristics</h1>
             {options}
             {answers}
             <h3 className={boxes[1]}>{boxes[0]}</h3>

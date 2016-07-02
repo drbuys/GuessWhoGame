@@ -12,7 +12,7 @@ var CharacterList = React.createClass({
 
         return (
             <div className="characterList">
-                <h3>Character List</h3>
+                <h1>Character List</h1>
                 {characterNodes}
             </div>
         );
