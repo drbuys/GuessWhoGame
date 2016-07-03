@@ -19810,7 +19810,7 @@
 	            React.createElement(
 	                'div',
 	                { className: 'mainBox' },
-	                React.createElement(CharacterList, { info: this.state.data }),
+	                React.createElement(CharacterList, { info: this.state.data, checkGuess: this.onCheckGuess }),
 	                React.createElement(CharacteristicForm, { characteristics: this.getCharacteristics, answers: this.getPossibleAnswers, checkAnswer: this.getYesNoBox,
 	                    yesnostate: this.state.yesnoBox }),
 	                React.createElement(GuessForm, { info: this.state.data, checkGuess: this.onCheckGuess, guessboxstate: this.state.guessBox })
@@ -19846,7 +19846,7 @@
 	
 	    render: function render() {
 	        var characterNodes = this.props.info.map(function (character) {
-	            return React.createElement(CharacterBox, { character: character, key: character._id });
+	            return React.createElement(CharacterBox, { character: character, key: character._id, guess: this.props.checkGuess });
 	        }.bind(this));
 	
 	        return React.createElement(
@@ -19877,6 +19877,12 @@
 	    displayName: "CharacterBox",
 	
 	
+	    clickedpic: function clickedpic(e) {
+	        console.log(e.target.className);
+	        var id = e.target.className;
+	        this.props.guess(id);
+	    },
+	
 	    render: function render() {
 	        return React.createElement(
 	            "div",
@@ -19886,7 +19892,7 @@
 	                null,
 	                this.props.character.name
 	            ),
-	            React.createElement("img", { src: this.props.character.image })
+	            React.createElement("img", { onClick: this.clickedpic, className: this.props.character._id, src: this.props.character.image })
 	        );
 	    }
 	

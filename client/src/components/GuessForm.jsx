@@ -20,17 +20,12 @@ var GuessForm = React.createClass({
         }
 
         var options = this.props.info.map(function(person){
-            return <button className="guessButton" onClick={this.guess}key={person._id} value={person._id}>{person.name}</button>
+            return <button className="guessButton" onClick={this.guess} key={person._id} value={person._id}>{person.name}</button>
         }.bind(this));
 
         return (
             <div className="guessFormDiv">
                 <h1>Make Your Guess Below</h1>
-                {/*<form>
-                    <select>
-                    {options}
-                    </select>
-                </form>*/}
                 {options}
                 <h3 className={boxes[1]}>{boxes[0]}</h3>
             </div>

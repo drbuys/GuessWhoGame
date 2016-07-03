@@ -6,7 +6,7 @@ var CharacterList = React.createClass({
     render: function() {
         var characterNodes = this.props.info.map(function(character) {
           return (
-            <CharacterBox character={character} key={character._id}/>
+            <CharacterBox character={character} key={character._id} guess={this.props.checkGuess}/>
           );
         }.bind(this));
 

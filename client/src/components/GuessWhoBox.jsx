@@ -98,7 +98,7 @@ var GuessWhoBox = React.createClass({
                     </div>
                 </div>
                 <div className="mainBox">
-                    <CharacterList info={this.state.data}/>
+                    <CharacterList info={this.state.data} checkGuess={this.onCheckGuess}/>
                     <CharacteristicForm characteristics={this.getCharacteristics} answers={this.getPossibleAnswers} checkAnswer={this.getYesNoBox}
                         yesnostate={this.state.yesnoBox}/>
                     <GuessForm info={this.state.data} checkGuess={this.onCheckGuess} guessboxstate={this.state.guessBox}/>
