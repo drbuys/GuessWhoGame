@@ -17,6 +17,7 @@ var GuessWhoBox = React.createClass({
     },
 
     componentDidMount: function() {
+        new Audio('htftheme.mp3').play();
         this.setState({guessBox: ["Shall we play a game?", "AnswerBoxShow"]});
         setTimeout(this.resetYesNoGuess, 3000);
     },
